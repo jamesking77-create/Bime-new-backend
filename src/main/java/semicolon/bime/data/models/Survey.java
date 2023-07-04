@@ -10,6 +10,5 @@ import java.util.List;
 @Setter
 public class Survey {
     @Id
-    private int id;
-    private List<Question> questions;
+    private Long id;
 }

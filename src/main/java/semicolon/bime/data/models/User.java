@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 @Setter
 public class User {
     @Id
-    private int id;
+    private Long id;
     private String password;
     private String username;
     private String email;
