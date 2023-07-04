@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 public class Notification {
     @Id
-    private int id;
+    private Long id;
     private String message;
     private LocalDateTime timeOfMessage;
 }
