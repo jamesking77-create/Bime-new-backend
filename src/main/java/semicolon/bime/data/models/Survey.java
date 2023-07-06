@@ -1,5 +1,4 @@
 package semicolon.bime.data.models;
-
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -12,5 +11,5 @@ import java.util.List;
 @Document
 public class Survey {
     @Id
-    private Long id;
+    private String id;
 }

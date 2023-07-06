@@ -1,19 +1,15 @@
-package semicolon.bime.data.models;
+package semicolon.bime.dto.requests;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Getter
 @Setter
+@Getter
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Document
-public class User {
-    @Id
-    private String id;
+public class UserRegisterRequest {
     private String password;
     private String username;
     private String email;
