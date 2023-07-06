@@ -1,8 +1,6 @@
 package semicolon.bime.services;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import semicolon.bime.data.repositories.UserRepository;
 import semicolon.bime.dto.requests.UserLoginRequest;
