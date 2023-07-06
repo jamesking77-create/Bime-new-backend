@@ -1,37 +1,45 @@
 package semicolon.bime.services;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import semicolon.bime.Exception.RegistrationException;
+import semicolon.bime.Util.UserLoginMsg;
+import semicolon.bime.Util.UserRegistrationMsg;
+import semicolon.bime.dto.requests.UserLoginRequest;
 import semicolon.bime.dto.requests.UserRegisterRequest;
-import semicolon.bime.dto.responses.UserRegisterResponse;
+import semicolon.bime.dto.responses.UserResponse;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 @SpringBootTest
-@RequiredArgsConstructor
 class UserServiceImplTest {
     @Autowired
     private UserServiceImpl userService;
-    private UserRegisterResponse response;
-    private UserRegisterRequest request;
+    private UserRegisterRequest registerRequest;
+    private UserLoginRequest  loginRequest;
+    private UserResponse userResponse;
+
 
     @BeforeEach
-    void setUp() throws RegistrationException {
-       request = new UserRegisterRequest();
-        response= new UserRegisterResponse();
-        request.setUsername("loan");
-        request.setEmail("opmail@gmail.com");
-        request.setPassword("12364774");
-        response = new UserRegisterResponse();
-        response =userService.register(request);
+    void setUp() {
+       registerRequest = new UserRegisterRequest
+               ("12364774","opebi","opi09l@gmail.com");
+       loginRequest = new UserLoginRequest
+               ("12364774","opebi");
     }
+
+
     @Test
     void testThatUserRegisterResponseIsNotEmpty() {
-        assertThat(response).isNotNull();
+        userResponse = userService.register(registerRequest);
+        assertEquals(UserRegistrationMsg.USER_REGISTER_SUCCESSFUL,userResponse.getData());
+    }
+    @Test
+    void testThat_registeredUser_Can_Login(){
+       userResponse = userService.login(loginRequest);
+        assertEquals(UserLoginMsg.USER_LOGIN_SUCCESSFUL,userResponse.getData());
     }
 
 }
