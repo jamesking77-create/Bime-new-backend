@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import semicolon.bime.Util.UserLoginMsg;
 import semicolon.bime.Util.UserRegistrationMsg;
+import semicolon.bime.data.repositories.UserRepository;
 import semicolon.bime.dto.requests.UserLoginRequest;
 import semicolon.bime.dto.requests.UserRegisterRequest;
 import semicolon.bime.dto.responses.UserResponse;
@@ -17,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class UserServiceImplTest {
     @Autowired
     private UserServiceImpl userService;
+    @Autowired
+    private UserRepository userRepository;
     private UserRegisterRequest registerRequest;
     private UserLoginRequest  loginRequest;
     private UserResponse userResponse;
@@ -33,6 +36,7 @@ class UserServiceImplTest {
 
     @Test
     void testThatUserRegisterResponseIsNotEmpty() {
+        userRepository.deleteAll();
         userResponse = userService.register(registerRequest);
         assertEquals(UserRegistrationMsg.USER_REGISTER_SUCCESSFUL,userResponse.getData());
     }
