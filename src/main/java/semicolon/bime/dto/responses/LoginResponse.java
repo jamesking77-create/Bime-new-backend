@@ -5,12 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserResponse {
-    public String username;
-    public String  email;
-    public String id;
+public class LoginResponse {
     public String message;
     public boolean isSuccessful;
-
-
 }
