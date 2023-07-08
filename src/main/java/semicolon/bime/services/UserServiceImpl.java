@@ -3,7 +3,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import semicolon.bime.Exception.RegistrationException;
-import semicolon.bime.Util.UserLoginMsg;
 import semicolon.bime.data.models.User;
 import semicolon.bime.data.repositories.UserRepository;
 import semicolon.bime.dto.requests.UserLoginRequest;
@@ -11,7 +10,6 @@ import semicolon.bime.dto.requests.UserRegisterRequest;
 import semicolon.bime.Exception.UserNotFoundException;
 import semicolon.bime.dto.responses.LoginResponse;
 import semicolon.bime.dto.responses.UserResponse;
-
 import static semicolon.bime.Util.UserLoginMsg.*;
 import static semicolon.bime.Util.UserRegistrationMsg.*;
 
