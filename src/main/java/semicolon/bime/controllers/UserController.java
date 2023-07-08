@@ -16,7 +16,7 @@ import semicolon.bime.services.UserService;
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/bime/auth/")
-public class UserController {
+public class UserController{
     private final UserService userService;
     @PostMapping("register")
     public ResponseEntity<UserResponse> register(@RequestBody UserRegisterRequest registerRequest){
