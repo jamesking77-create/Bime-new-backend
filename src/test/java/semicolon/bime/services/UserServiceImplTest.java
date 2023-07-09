@@ -9,6 +9,8 @@ import semicolon.bime.dto.requests.UserRegisterRequest;
 import semicolon.bime.dto.responses.LoginResponse;
 import semicolon.bime.dto.responses.UserResponse;
 
+import java.security.NoSuchAlgorithmException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static semicolon.bime.Util.UserLoginMsg.USER_LOGIN_SUCCESSFUL;
 import static semicolon.bime.Util.UserRegistrationMsg.USER_REGISTER_SUCCESSFUL;
@@ -38,13 +40,13 @@ class UserServiceImplTest {
 
 
     @Test
-    void testThatUserRegisterResponseIsNotEmpty() {
+    void testThatUserRegisterResponseIsNotEmpty() throws NoSuchAlgorithmException {
         userRepository.deleteAll();
         userResponse = userService.register(registerRequest);
         assertEquals(USER_REGISTER_SUCCESSFUL,userResponse.getMessage());
     }
     @Test
-    void testThat_registeredUser_Can_Login(){
+    void testThat_registeredUser_Can_Login() throws NoSuchAlgorithmException {
        loginResponse = userService.login(loginRequest);
         assertEquals(USER_LOGIN_SUCCESSFUL, loginResponse.getMessage());
     }
