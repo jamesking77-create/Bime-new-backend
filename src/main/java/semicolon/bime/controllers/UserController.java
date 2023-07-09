@@ -1,6 +1,7 @@
 package semicolon.bime.controllers;
 
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,10 @@ import semicolon.bime.services.UserService;
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/bime/auth/")
+
 public class UserController{
     private final UserService userService;
+    @SneakyThrows
     @PostMapping("register")
     public ResponseEntity<UserResponse> register(@RequestBody UserRegisterRequest registerRequest){
         try{
@@ -26,6 +29,9 @@ public class UserController{
             return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+
+    @SneakyThrows
     @PostMapping("login")
     public ResponseEntity<LoginResponse> login(@RequestBody UserLoginRequest loginRequest){
         try {

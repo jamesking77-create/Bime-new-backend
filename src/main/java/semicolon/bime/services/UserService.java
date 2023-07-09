@@ -7,7 +7,9 @@ import semicolon.bime.Exception.UserNotFoundException;
 import semicolon.bime.dto.responses.LoginResponse;
 import semicolon.bime.dto.responses.UserResponse;
 
+import java.security.NoSuchAlgorithmException;
+
 public interface UserService {
-   UserResponse register(UserRegisterRequest request) throws RegistrationException;
-    LoginResponse login(UserLoginRequest request) throws UserNotFoundException;
+   UserResponse register(UserRegisterRequest request) throws RegistrationException, NoSuchAlgorithmException;
+    LoginResponse login(UserLoginRequest request) throws UserNotFoundException, NoSuchAlgorithmException;
 }
