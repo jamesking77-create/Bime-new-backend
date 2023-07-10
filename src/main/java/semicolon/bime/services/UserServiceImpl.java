@@ -10,7 +10,6 @@ import semicolon.bime.dto.requests.UserRegisterRequest;
 import semicolon.bime.Exception.UserNotFoundException;
 import semicolon.bime.dto.responses.LoginResponse;
 import semicolon.bime.dto.responses.UserResponse;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
