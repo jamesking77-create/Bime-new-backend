@@ -20,14 +20,9 @@ import static semicolon.bime.Util.UserRegistrationMsg.USER_REGISTER_SUCCESSFUL;
 class UserServiceImplTest {
     @Autowired
     private UserServiceImpl userService;
-<<<<<<< HEAD
     @Autowired
     private UserRepository userRepository;
-=======
 
-    @Autowired
-    private  UserRepository userRepository;
->>>>>>> a494c6acb8baa0ff8285df7bdd3c78c917423f38
     private UserRegisterRequest registerRequest;
     private UserLoginRequest  loginRequest;
     private UserResponse userResponse;
@@ -38,7 +33,7 @@ class UserServiceImplTest {
     @BeforeEach
     void setUp() {
        registerRequest = new UserRegisterRequest
-               ("jamesking","opi09l@gmail.com","089999");
+               ("jamesking","ezeikefelix@gmail.com","089999");
        loginRequest = new UserLoginRequest
                ("jamesking","089999");
     }
