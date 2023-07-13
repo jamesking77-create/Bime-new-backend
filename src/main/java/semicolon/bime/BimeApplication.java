@@ -11,4 +11,4 @@ public class BimeApplication {
 		SpringApplication.run(BimeApplication.class, args);
 	}
 
-}
+	}
