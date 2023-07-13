@@ -10,5 +10,4 @@ public class BimeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BimeApplication.class, args);
 	}
-
 }
