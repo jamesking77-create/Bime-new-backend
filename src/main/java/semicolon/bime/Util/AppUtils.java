@@ -4,7 +4,7 @@ public class AppUtils {
 
     public static final String APP_NAME="bime inc.";
 
-    public static final String APP_EMAIL="noreply@regcrow.africa";
+    public static final String APP_EMAIL="noreply@bime.africa";
 
     public static final String ACTIVATION_LINK_VALUE="Activation Link";
     public static final String ACTIVATE_ACCOUNT_URL = "http://localhost:3000/dashboard";
