@@ -27,7 +27,7 @@ public class TrialTest {
 
         Sender sender = new Sender("bime inc.", "noreply@bime.com");
 
-        Recipient recipient = new Recipient ("ezeikefelix999@gmail.com");
+        Recipient recipient = new Recipient ("jamesasuelimen77@gmail.com");
 
         EmailNotificationRequest emailNotificationRequest = new EmailNotificationRequest();
         emailNotificationRequest.setEmailSender(sender);

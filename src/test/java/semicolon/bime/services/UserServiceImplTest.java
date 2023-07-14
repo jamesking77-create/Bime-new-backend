@@ -8,9 +8,7 @@ import semicolon.bime.dto.requests.UserLoginRequest;
 import semicolon.bime.dto.requests.UserRegisterRequest;
 import semicolon.bime.dto.responses.LoginResponse;
 import semicolon.bime.dto.responses.UserResponse;
-
 import java.security.NoSuchAlgorithmException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static semicolon.bime.Util.UserLoginMsg.USER_LOGIN_SUCCESSFUL;
 import static semicolon.bime.Util.UserRegistrationMsg.USER_REGISTER_SUCCESSFUL;
