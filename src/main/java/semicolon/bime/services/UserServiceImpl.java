@@ -82,9 +82,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
-
-
     private byte[] hashUserPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         md.update(password.getBytes());
