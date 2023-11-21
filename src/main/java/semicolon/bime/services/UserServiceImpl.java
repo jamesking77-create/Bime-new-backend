@@ -1,4 +1,5 @@
 package semicolon.bime.services;
+
 import com.auth0.jwt.algorithms.Algorithm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import semicolon.bime.data.repositories.UserRepository;
 import semicolon.bime.dto.requests.*;
 import semicolon.bime.dto.responses.LoginResponse;
 import semicolon.bime.dto.responses.UserResponse;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,7 +25,9 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
+
 import com.auth0.jwt.JWT;
+
 import static semicolon.bime.Util.AppUtils.*;
 import static semicolon.bime.Util.ExceptionUtils.USER_REGISTRATION_FAILED;
 import static semicolon.bime.Util.UserLoginMsg.*;
@@ -44,15 +48,16 @@ public class UserServiceImpl implements UserService {
     public UserResponse register(UserRegisterRequest request) throws RegistrationException, NoSuchAlgorithmException {
         boolean isRegistered = userRepository.findByEmail(request.getEmail()).isPresent();
         if (isRegistered) throw new RegistrationException(EMAIL_ADDRESS_ALREADY_EXIST_ERROR);
-        User user = modelMapper.map(request,User.class);
-        var userPassword= hashUserPassword(request.getPassword());
+        User user = modelMapper.map(request, User.class);
+        var userPassword = hashUserPassword(request.getPassword());
         user.setPassword(Arrays.toString(userPassword));
         userRepository.save(user);
         EmailNotificationRequest emailNotificationRequest = buildEmailRequest(user);
         var response = mailService.sendMail(emailNotificationRequest);
         log.info("response-->{}", response);
         boolean isSavedCustomer = user.getId() != null;
-        if (!isSavedCustomer) throw new CustomerRegistrationFailedException(String.format(USER_REGISTRATION_FAILED, user.getEmail()));
+        if (!isSavedCustomer)
+            throw new CustomerRegistrationFailedException(String.format(USER_REGISTRATION_FAILED, user.getEmail()));
         return buildUserResponse(user);
     }
 
@@ -68,15 +73,15 @@ public class UserServiceImpl implements UserService {
         request.setRecipients(Set.of(recipient));
         request.setSubject(ACTIVATION_LINK_VALUE);
         String template = getEmailTemplate();
-        request.setContent(String.format(template, ACTIVATE_ACCOUNT_URL+"?"+token));
+        request.setContent(String.format(template, ACTIVATE_ACCOUNT_URL + "?" + token));
         return request;
     }
 
-    private String getEmailTemplate(){
-        try(BufferedReader reader =
-                    new BufferedReader(new FileReader(MAIL_TEMPLATE_LOCATION))){
-            return  reader.lines().collect(Collectors.joining());
-        }catch (IOException exception){
+    private String getEmailTemplate() {
+        try (BufferedReader reader =
+                     new BufferedReader(new FileReader(MAIL_TEMPLATE_LOCATION))) {
+            return reader.lines().collect(Collectors.joining());
+        } catch (IOException exception) {
             throw new ActivationLinkFailedException("Failed to send activation link");
         }
     }
@@ -88,7 +93,7 @@ public class UserServiceImpl implements UserService {
         return md.digest(password.getBytes(StandardCharsets.UTF_8));
     }
 
-    private UserResponse  buildUserResponse(User user) {
+    private UserResponse buildUserResponse(User user) {
         UserResponse userResponse = new UserResponse();
         userResponse.setUsername(user.getUsername());
         userResponse.setEmail(user.getEmail());
@@ -101,9 +106,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public LoginResponse login(UserLoginRequest request) throws UserNotFoundException, NoSuchAlgorithmException {
         User user = userRepository.findByUsername(request.getUsername())
-            .orElseThrow(()->new UserNotFoundException(User_DO_NOT_EXIST_ERROR));
+                .orElseThrow(() -> new UserNotFoundException(User_DO_NOT_EXIST_ERROR));
         var savedUserPassword = hashUserPassword(request.getPassword());
-        if (!user.getPassword().equals(Arrays.toString(savedUserPassword))) throw new UserNotFoundException(USER_DETAILS_INVALID);
+        if (!user.getPassword().equals(Arrays.toString(savedUserPassword)))
+            throw new UserNotFoundException(USER_DETAILS_INVALID);
         return buildUserLoginResponse();
     }
 

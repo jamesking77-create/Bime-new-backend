@@ -14,7 +14,7 @@ class EmailServiceImplTest {
 
     @BeforeEach
     void setUp(){
-       emailDetails.setRecipient("effiongtimothy1@gmail.com");
+       emailDetails.setRecipient("ndebuezedamian@gmail.com");
        emailDetails.setSubject("Testing");
        emailDetails.setMsgBody("checking to see stuff");
     }

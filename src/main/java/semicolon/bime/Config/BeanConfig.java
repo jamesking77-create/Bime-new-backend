@@ -1,4 +1,4 @@
-package semicolon.bime.config;
+package semicolon.bime.Config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-
 import java.util.Properties;
 
 import static semicolon.bime.Util.AppUtils.MAIL_API_KEY;
