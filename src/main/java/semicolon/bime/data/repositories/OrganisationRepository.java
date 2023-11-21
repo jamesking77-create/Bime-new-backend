@@ -1,4 +1,4 @@
-package extension.bime.data.repositories;
+package semicolon.bime.data.repositories;
 
 public interface OrganisationRepository {
 }

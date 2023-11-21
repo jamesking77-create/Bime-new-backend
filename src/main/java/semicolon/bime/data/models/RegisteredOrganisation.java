@@ -1,4 +1,4 @@
-package extension.bime.data.models;
+package semicolon.bime.data.models;
 
 import lombok.Getter;
 import lombok.Setter;
