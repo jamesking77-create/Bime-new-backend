@@ -1,4 +1,4 @@
-package semicolon.bime.config;
+package semicolon.bime.Config;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

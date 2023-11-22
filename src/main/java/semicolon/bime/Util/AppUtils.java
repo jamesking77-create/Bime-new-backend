@@ -8,7 +8,7 @@ public class AppUtils {
 
     public static final String ACTIVATION_LINK_VALUE="Activation Link";
     public static final String ACTIVATE_ACCOUNT_URL = "http://localhost:3000/dashboard";
-    public static final String MAIL_TEMPLATE_LOCATION = "C:\\Users\\USER\\Desktop\\CAP-STONE\\bime\\src\\main\\resources\\static\\activation.txt";
+    public static final String MAIL_TEMPLATE_LOCATION = "C:\\Users\\Admin\\IdeaProjects\\Bime-new-backend\\src\\main\\resources\\static\\activation.txt";
     public static final String API_KEY_VALUE = "api-key";
 
     public static final String EMAIL_URL="https://api.brevo.com/v3/smtp/email";

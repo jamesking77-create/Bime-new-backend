@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import semicolon.bime.config.MailConfig;
+import semicolon.bime.Config.MailConfig;
 import semicolon.bime.dto.requests.EmailNotificationRequest;
 import semicolon.bime.dto.responses.SendMailResponse;
 
